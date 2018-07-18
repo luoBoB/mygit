@@ -1,0 +1,16 @@
+E:\workspace\NBIOT\NBIOT.Bll\obj\Debug\netcoreapp2.1\NBIOT.Bll.csproj.CoreCompileInputs.cache
+E:\workspace\NBIOT\NBIOT.Bll\obj\Debug\netcoreapp2.1\NBIOT.Bll.AssemblyInfoInputs.cache
+E:\workspace\NBIOT\NBIOT.Bll\obj\Debug\netcoreapp2.1\NBIOT.Bll.AssemblyInfo.cs
+E:\workspace\NBIOT\NBIOT.Bll\bin\Debug\netcoreapp2.1\NBIOT.Bll.deps.json
+E:\workspace\NBIOT\NBIOT.Bll\bin\Debug\netcoreapp2.1\NBIOT.Bll.dll
+E:\workspace\NBIOT\NBIOT.Bll\bin\Debug\netcoreapp2.1\NBIOT.Bll.pdb
+E:\workspace\NBIOT\NBIOT.Bll\bin\Debug\netcoreapp2.1\NBIOT.Common.dll
+E:\workspace\NBIOT\NBIOT.Bll\bin\Debug\netcoreapp2.1\NBIOT.Dal.dll
+E:\workspace\NBIOT\NBIOT.Bll\bin\Debug\netcoreapp2.1\NBIOT.Model.dll
+E:\workspace\NBIOT\NBIOT.Bll\bin\Debug\netcoreapp2.1\NBIOT.Dal.pdb
+E:\workspace\NBIOT\NBIOT.Bll\bin\Debug\netcoreapp2.1\NBIOT.Model.pdb
+E:\workspace\NBIOT\NBIOT.Bll\bin\Debug\netcoreapp2.1\NBIOT.Common.pdb
+E:\workspace\NBIOT\NBIOT.Bll\obj\Debug\netcoreapp2.1\NBIOT.Bll.csprojAssemblyReference.cache
+E:\workspace\NBIOT\NBIOT.Bll\obj\Debug\netcoreapp2.1\NBIOT.Bll.csproj.CopyComplete
+E:\workspace\NBIOT\NBIOT.Bll\obj\Debug\netcoreapp2.1\NBIOT.Bll.dll
+E:\workspace\NBIOT\NBIOT.Bll\obj\Debug\netcoreapp2.1\NBIOT.Bll.pdb

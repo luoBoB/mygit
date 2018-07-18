@@ -1,0 +1,9 @@
+E:\workspace\NBIOT\NBIOT.IParse\bin\Debug\netcoreapp2.1\NBIOT.IParse.deps.json
+E:\workspace\NBIOT\NBIOT.IParse\bin\Debug\netcoreapp2.1\NBIOT.IParse.dll
+E:\workspace\NBIOT\NBIOT.IParse\bin\Debug\netcoreapp2.1\NBIOT.IParse.pdb
+E:\workspace\NBIOT\NBIOT.IParse\obj\Debug\netcoreapp2.1\NBIOT.IParse.csprojAssemblyReference.cache
+E:\workspace\NBIOT\NBIOT.IParse\obj\Debug\netcoreapp2.1\NBIOT.IParse.csproj.CoreCompileInputs.cache
+E:\workspace\NBIOT\NBIOT.IParse\obj\Debug\netcoreapp2.1\NBIOT.IParse.AssemblyInfoInputs.cache
+E:\workspace\NBIOT\NBIOT.IParse\obj\Debug\netcoreapp2.1\NBIOT.IParse.AssemblyInfo.cs
+E:\workspace\NBIOT\NBIOT.IParse\obj\Debug\netcoreapp2.1\NBIOT.IParse.dll
+E:\workspace\NBIOT\NBIOT.IParse\obj\Debug\netcoreapp2.1\NBIOT.IParse.pdb

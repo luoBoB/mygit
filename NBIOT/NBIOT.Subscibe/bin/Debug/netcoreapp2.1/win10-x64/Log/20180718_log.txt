@@ -1,0 +1,34 @@
+2018-07-18 10:17:06,841 INFO  NETCorelog4net 收到数据：{
+"notifyType": "deviceDataChanged",
+"deviceId": "bf40eec1-a6ba-4034-8f73-09530e8d2597",
+"gatewayId": "24dad21a-9dac-4fc7-a6df-629edde1a180",
+"requestId": null,
+"service": {
+"serviceId": "GetSmoke",
+"serviceType": "GetSmoke",
+"data": {
+"Temperature": 48559,
+"Humidity": 24429,
+"Longitude": 118,
+"Longitude1": 43,
+"Longitude2": 53,
+"Longitude3": 14,
+"Latitude": 81,
+"Latitude1": 7,
+"Latitude2": 96,
+"Latitude3": 51,
+"WaterGage": 52486,
+"FuelGas": 9802,
+"Smoke": 60717,
+"Formaldehyde": 55903,
+"AirQuality": 13132,
+"SoilHumidity": 8024359,
+"WaterHeight": 16910,
+"Voltage": 43268
+},
+"eventTime": "20180626T012446Z"
+}
+}
+
+2018-07-18 10:17:08,238 INFO  NETCorelog4net 事件类型：deviceDataChanged
+2018-07-18 10:17:08,920 INFO  NETCorelog4net 设备Id：bf40eec1-a6ba-4034-8f73-09530e8d2597

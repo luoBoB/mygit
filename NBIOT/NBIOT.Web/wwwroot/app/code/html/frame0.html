@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"
+    />
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>设备列表</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../css/app.css" />
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+    <link rel="stylesheet" type="text/css" href="../css/mint-ui-style.css">
+    <style>
+        body {
+            background: #E9E7E8;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        #app {
+            position: relative;
+            top: 5px;
+            text-align: center;
+        }
+
+        .device-box {
+            height: 150px;
+            background: #fff;
+            margin: 0 5px 5px 5px;
+        }
+
+        .device-box:nth-last-child(1) {
+            margin-bottom: 0;
+        }
+
+        .device-box .left-item {
+            height: 100%;
+            width: 65%;
+            float: left;
+        }
+
+        .device-box .left-item .left-top {
+            height: 45%;
+            padding-top: 20px;
+            padding-left: 20px;
+            box-sizing: border-box;
+        }
+
+        .device-box .left-item .left-top .door {
+            height: 75px;
+            width: 50%;
+            float: left;
+        }
+
+        .device-box .left-item .left-top .door .lock-img {
+            height: 50px;
+            line-height: 50px;
+            padding-left: 40px;
+            float: left;
+            background: url(../image/icon-door.png) no-repeat 10px 45%;
+            background-size: auto 25px;
+            margin: auto;
+        }
+
+        .device-box .left-item .left-top .state {
+            height: 75px;
+            width: 50%;
+            float: left;
+        }
+
+        .device-box .left-item .left-top .state .lock-img {
+            height: 30px;
+            line-height: 30px;
+            padding-left: 40px;
+            float: left;
+        }
+
+        .device-box .left-item .left-top .state .last-online-time {
+            font-size: 8px;
+            width: 90%;
+            margin: auto;
+            margin-left: 15px;
+            text-align: left;
+        }
+
+        .device-box .left-item .left-bottom {
+            height: 55%;
+        }
+
+        .device-box .left-item .left-bottom .pwd {
+            height: 100%;
+            background: url(../image/pwd_bg.png) no-repeat 0 0;
+            background-size: 90% 40px;
+            margin-left: 30px;
+            margin-top: 15px;
+        }
+
+        .device-box .left-item .left-bottom .pwd span {
+            font-size: 15px;
+            font-weight: 600;
+            margin-right: 20px;
+            letter-spacing: 10px;
+        }
+
+        .device-box .right-item {
+            height: 100%;
+            width: 35%;
+            float: left;
+        }
+
+        .device-box .right-item .right-top {
+            height: 50%;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .device-box .right-item .right-top .open {
+            height: 40%;
+            width: 70%;
+            background: url(../image/open-bg.png) no-repeat 0 0;
+            background-size: 75% 25px;
+            position: absolute;
+            top: 33px;
+        }
+
+        .device-box .right-item .right-top .open span {
+            height: 100%;
+            width: 70%;
+            color: #fff;
+            font-size: 13px;
+            margin-top: 3px;
+            margin-right: 10px;
+            background: url(../image/open.png) no-repeat 5px 2px;
+            background-size: auto 13px;
+        }
+
+        .device-box .right-item .right-bottom {
+            height: 50%;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .device-box .right-item .right-bottom .get-pwd {
+            height: 40%;
+            width: 70%;
+            background: url(../image/btn-bg.png) no-repeat 0 0;
+            background-size: 75% 25px;
+            position: absolute;
+            top: 16px;
+        }
+
+        .device-box .right-item .right-bottom .get-pwd span {
+            height: 100%;
+            color: #fff;
+            font-size: 13px;
+            margin-right: 20px;
+            margin-top: 3px;
+        }
+
+        .online-img {
+            background: url(../image/online.png) no-repeat 25px 40%;
+            background-size: auto 15px;
+        }
+
+        .offline-img {
+            background: url(../image/offline.png) no-repeat 25px 40%;
+            background-size: auto 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app" class="hide">
+        <div class="device-box" v-for="(item, index) in deviceArr" :key="index">
+            <div class="left-item">
+                <div class="left-top">
+                    <div class="door">
+                        <div class="lock-img">
+                            <span style="font-weight: 600">{{item.DeviceName}}</span>
+                        </div>
+                    </div>
+                    <div class="state">
+                        <div class="lock-img online-img">
+                            <div style="font-size: 12px;">在线</div>
+                        </div>
+                        <!-- <div v-else class="lock-img offline-img">
+							<div style="font-size: 12px;">离线</div>
+						</div> -->
+                        <div style="clear: both;"></div>
+                        <div class="last-online-time">2018/5/16 14:02</div>
+                    </div>
+                </div>
+                <div class="left-bottom">
+                    <div class="pwd">
+                        <span>123456</span>
+                    </div>
+                </div>
+            </div>
+            <div class="right-item">
+                <div class="right-top">
+                    <div class="open" @click="open(item)">
+                        <span>开门</span>
+                    </div>
+                </div>
+                <div class="right-bottom">
+                    <div class="get-pwd">
+                        <span>获取密码</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/vue.js"></script>
+<script type="text/javascript" src="../script/mint-ui/index.js"></script>
+<script>
+    apiready = function () {
+        Array.prototype.indexOf = function (v) {
+            for (var i = 0, n = this.length; i < n; i++) {
+                if (this[i] == v) return i;
+            }
+            return -1;
+        };
+
+        function strToHexCharCode(str) {　　
+            if (str === "")　　　　 return "";　　
+            var hexCharCode = [];　　
+            hexCharCode.push("0x");　　
+            for (var i = 0; i < str.length; i++) {　　　　
+                hexCharCode.push((str.charCodeAt(i)).toString(16));　　
+            }　　
+            return hexCharCode.join("");
+        }
+
+        function hexCharCodeToStr(hexCharCodeStr) {　　
+            var trimedStr = hexCharCodeStr.trim();　　
+            var rawStr = 　　trimedStr.substr(0, 2).toLowerCase() === "0x"　　 ? 　　trimedStr.substr(2)　　 : 　　trimedStr;　　
+            var len = rawStr.length;　　
+            if (len % 2 !== 0) {　　　　
+                alert("Illegal Format ASCII Code!");　　　　
+                return "";　　
+            }　　
+            var curCharCode;　　
+            var resultStr = [];　　
+            for (var i = 0; i < len; i = i + 2) {　　　　
+                curCharCode = parseInt(rawStr.substr(i, 2), 16); // ASCII Code Value
+                　　　　
+                resultStr.push(String.fromCharCode(curCharCode));　　
+            }　　
+            return resultStr.join("");
+        }
+
+        var el = $api.dom('#app');
+        $api.css(el, 'min-height:' + api.frameHeight + 'px;');
+        $api.removeCls(el, 'hide');
+
+        var app = new Vue({
+            el: '#app',
+            data: function () {
+                return {
+                    deviceArr: [],
+                    user: JSON.parse(localStorage.getItem('user-key')),
+                    t: null
+                }
+            },
+            computed: {
+
+            },
+            mounted: function () {
+                var self = this;
+                this.getDeviceList();
+                this.initRefresh();
+                // api.addEventListener({
+                //     name: 'addDeviceEvent'
+                // }, function (ret, err) {
+                //     //刷新数据
+                //     self.addDevice();
+                // });
+            },
+            methods: {
+                initRefresh: function () {
+                    var self = this;
+                    api.setRefreshHeaderInfo({
+                        visible: true,
+                        loadingImg: 'widget://image/refresh.png',
+                        bgColor: 'rgba(255, 255, 255, 0)',
+                        textColor: '#fff',
+                        showTime: true
+                    }, function (ret, err) {
+                        self.getDeviceList();
+                    });
+                },
+                open: function (item) {
+                    var self = this;
+                    api.ajax({
+                        url: baseUrl + '/CommandInfo/DeviceCommands',
+                        method: 'post',
+                        dataType: 'json',
+                        headers: {
+                            'Content-Type': 'application/json; charset=utf-8',
+                            'X-Token': 'App'
+                        },
+                        data: {
+                            body: {
+                                // userId: self.user.Id,
+                                appId: 1,
+                                deviceId: item.DeviceId,
+                                serviceId: 'OpenLock_Event',
+                                method: 'OpenLock',
+                                // paras: {
+                                //     FuncCode: 1,
+                                //     EndFlag: 13
+                                // },
+                                paras: {
+                                    SyncByte: parseInt('5A', 16),
+                                    BodyLen: parseInt('1B', 16),
+                                    CmdType: parseInt('01', 16),
+                                    Status: parseInt('04', 16),
+                                    Flags: parseInt('00', 16),
+                                    AppId: parseInt('0384', 16),
+                                    OrderNo: parseInt('14', 16),
+                                    SDID1: parseInt('A137', 16),
+                                    SDID2: parseInt('8101', 16),
+                                    Pwd: hexCharCodeToStr("313233343536000000000000"),
+                                    DelayLockSeconds1: parseInt('0000', 16),
+                                    DelayLockSeconds2: parseInt('00FF', 16),
+                                    CheckSum: parseInt('D1', 16)
+                                }
+                            }
+                        }
+                    }, function (ret, err) {
+                        console.log(JSON.stringify(ret));
+                        console.log(JSON.stringify(err));
+                        if (ret && ret.Result) {
+                            self.t = setInterval(function () {
+                                self.getCmdResult(ret.Data.commandId);
+                            }, 2000);
+                        } else {
+                            //alert(JSON.stringify(err));
+                            api.alert({
+                                msg: '请求出错'
+                            });
+                        }
+                    });
+                },
+                getCmdResult: function (id) {
+                    var self = this;
+                    api.ajax({
+                        url: baseUrl + '/CommandInfo/GetCommand?commandId=' + id,
+                        method: 'get',
+                        headers: {
+                            'X-Token': 'App'
+                        }
+                    }, function (ret, err) {
+                        if (ret && ret.Result) {
+                            console.log(ret.Data.Status);
+                            if (ret.Data.Result != "null") {
+                                self.$toast('开锁成功');
+                                clearInterval(self.t);
+                            }
+                        } else {
+                            //alert(JSON.stringify(err));
+                            // api.alert({
+                            //     msg: '请求出错'
+                            // });
+                        }
+                    });
+                },
+                getLog: function (item) {
+                    var self = this;
+                    //跳转
+                    api.openWin({
+                        name: 'win_his_log',
+                        url: '../html/win_his_log.html',
+                        pageParam: {
+                            device: item
+                        }
+                    });
+                },
+                getDeviceList: function () {
+                    var self = this;
+                    api.ajax({
+                        url: baseUrl + '/UserDevice/GetListByUserId',
+                        method: 'post',
+                        dataType: 'json',
+                        headers: {
+                            'Content-Type': 'application/json; charset=utf-8',
+                            'X-Token': 'App'
+                        },
+                        data: {
+                            body: {
+                                userId: 1
+                            }
+                        }
+                    }, function (ret, err) {
+                        console.log(JSON.stringify(ret));
+                        console.log(JSON.stringify(err));
+                        if (ret && ret.Result) {
+                            self.deviceArr = ret.Data;
+                            api.refreshHeaderLoadDone();
+                        } else {
+                            //alert(JSON.stringify(err));
+                            api.alert({
+                                msg: '请求出错'
+                            });
+                        }
+                    });
+                }
+            }
+        });
+    };
+</script>

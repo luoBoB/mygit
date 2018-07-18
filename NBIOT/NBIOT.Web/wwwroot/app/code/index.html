@@ -1,0 +1,264 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"
+    />
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>登录</title>
+    <link rel="stylesheet" type="text/css" href="./css/api.css" />
+    <link rel="stylesheet" type="text/css" href="./css/style.css" />
+    <link rel="stylesheet" type="text/css" href="./css/app.css" />
+    <style>
+        body {
+            background-image: url(./image/main_bg.png);
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+        }
+
+        .logo {
+            height: 150px;
+            line-height: 150px;
+            text-align: center;
+        }
+
+        .logo img {
+            height: 80%;
+        }
+
+        .copyright {
+            font-size: 17px;
+            color: #fff;
+            text-align: center;
+            box-sizing: border-box;
+            padding-bottom: 25px;
+        }
+    </style>
+    <style>
+        .login {
+            box-sizing: border-box;
+            width: 100%;
+            height: 100%;
+            padding-top: 15px;
+        }
+
+        .name-box {
+            position: relative;
+            box-sizing: border-box;
+            height: 50px;
+            line-height: 50px;
+            width: 80%;
+            background: #fff;
+            border-radius: 20px;
+        }
+
+        .name-box .img {
+            position: absolute;
+            width: 45px;
+            box-sizing: border-box;
+            padding: 10px 5px;
+            float: left;
+        }
+
+        .name-box .img img {
+            height: 30px;
+        }
+
+        .name-box .phone {
+            position: absolute;
+            box-sizing: border-box;
+            left: 45px;
+        }
+
+        .name-box .phone input {
+            height: 30px;
+        }
+
+        .pwd-box {
+            position: relative;
+            box-sizing: border-box;
+            height: 50px;
+            line-height: 50px;
+            width: 80%;
+            background: #fff;
+            border-radius: 20px;
+        }
+
+        .pwd-box .img {
+            position: absolute;
+            width: 45px;
+            box-sizing: border-box;
+            padding: 10px 5px;
+            float: left;
+        }
+
+        .pwd-box .img img {
+            height: 30px;
+        }
+
+        .pwd-box .pwd {
+            position: absolute;
+            box-sizing: border-box;
+            top: 0;
+            left: 45px;
+        }
+
+        .pwd-box .pwd input {
+            height: 30px;
+            border: none;
+        }
+
+        .clear {
+            clear: both;
+        }
+
+        .flex-mid {
+            display: flex;
+            justify-content: center;
+        }
+
+        .margin-t-25 {
+            margin-top: 25px;
+        }
+
+        .tip-box {
+            width: 80%;
+            height: 15px;
+            line-height: 15px;
+        }
+
+        .tip {
+            color: #fff;
+            float: right;
+            font-size: 12px;
+        }
+
+        .login-btn {
+            width: 80%;
+            height: 50px;
+            line-height: 50px;
+            background: #02FAFA;
+            border-radius: 20px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrap" class="flex-wrap flex-vertical hide" v-cloak>
+        <header>
+            <div class="logo">
+                <!-- <img src="./image/login/login_logo.png" /> -->
+            </div>
+        </header>
+        <div id="main" class="flex-con">
+            <div class="login">
+                <div class="flex-mid">
+                    <div class="name-box">
+                        <div class="img">
+                            <img src="./image/login/login_name.png" />
+                        </div>
+                        <div class="phone">
+                            <input v-model="phone" placeholder="用户名" />
+                        </div>
+                    </div>
+                </div>
+                <div class="flex-mid margin-t-25">
+                    <div class="pwd-box">
+                        <div class="img">
+                            <img src="./image/login/login_pwd.png" />
+                        </div>
+                        <div class="pwd">
+                            <input type="password" v-model="pwd" placeholder="密码" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex-mid" style="margin-top: 10px;">
+                    <div class="tip-box">
+                        <div class="tip">
+                            登录遇到问题？
+                        </div>
+                    </div>
+                </div>
+                <div class="flex-mid" style="margin-top: 80px;">
+                    <button class="login-btn" @click="login()">
+                        登录
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            新奥互联网有限公司
+        </div>
+    </div>
+</body>
+
+</html>
+<script type="text/javascript" src="script/api.js"></script>
+<script type="text/javascript" src="script/vue.js"></script>
+<script type="text/javascript">
+    apiready = function () {
+        $api.removeCls($api.dom('#wrap'), 'hide');
+        $api.fixStatusBar($api.dom('header'));
+        var vm = new Vue({
+            el: '#wrap',
+            data: function () {
+                return {
+                    phone: '13317738972',
+                    pwd: '123456'
+                }
+            },
+            methods: {
+                login: function () {
+                    var self = this;
+                    if (!self.phone) {
+                        api.toast({
+                            msg: '请输入手机号',
+                            duration: 1000,
+                            location: 'bottom'
+                        });
+                        return;
+                    }
+                    if (!self.pwd) {
+                        api.toast({
+                            msg: '请输入密码',
+                            duration: 1000,
+                            location: 'bottom'
+                        });
+                        return;
+                    }
+                    var postData = {
+                        Phone: self.phone,
+                        Password: self.pwd
+                    };
+                    console.log(JSON.stringify(postData));
+                    console.log(baseUrl + '/User/UserLogin');
+                    api.ajax({
+                        url: baseUrl + '/User/UserLogin',
+                        method: 'post',
+                        dataType: 'json',
+                        headers: {
+                            'Content-Type': 'application/json; charset=utf-8'
+                        },
+                        data: {
+                            body: postData
+                        }
+                    }, function (ret, err) {
+                        console.log(JSON.stringify(ret));
+                        console.log("错误：" + JSON.stringify(err));
+                        if (ret && ret.Result) {
+                            localStorage.setItem('user-key', JSON.stringify(ret.Data));
+                            api.openWin({
+                                name: 'main',
+                                url: 'html/main.html'
+                            });
+                        }
+                    });
+                }
+            }
+        })
+    }
+</script>

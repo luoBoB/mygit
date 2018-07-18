@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\NBIOT.Dal\NBIOT.Dal.csproj" />
+    <ProjectReference Include="..\NBIOT.Model\NBIOT.Model.csproj" />
+  </ItemGroup>
+
+</Project>

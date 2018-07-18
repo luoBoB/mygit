@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<AppSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ConnectionString>server=120.76.235.37;User Id=root;password=123456;Database=nbiot;pooling=false;character set=utf8;SslMode = none;</ConnectionString>
+</AppSettings>

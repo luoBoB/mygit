@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"
+    />
+    <title>添加设备</title>
+    <link rel="stylesheet" type="text/css" href="../css/app.css" />
+    <link rel="stylesheet" type="text/css" href="../css/mint-ui-style.css">
+    <style>
+        body {
+            background: #E9E7E8;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        .btn-tj {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .btnSubmit {
+            background: #31b573;
+            width: 90%;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app" class="hide">
+        <mt-field label="设备名称" placeholder="请输入设备名称" v-model="name"></mt-field>
+        <mt-field label="验证码" placeholder="请输入验证码" v-model="code"></mt-field>
+        <mt-field label="设备型号" placeholder="请输入设备型号" v-model="model"></mt-field>
+        <div class="btn-tj">
+            <mt-button type="primary" class="btnSubmit" @click="regDevice">提交</mt-button>
+        </div>
+    </div>
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/vue.js"></script>
+<script type="text/javascript" src="../script/mint-ui/index.js"></script>
+<script type="text/javascript">
+    apiready = function () {
+        $api.removeCls($api.dom('#app'), 'hide');
+        var vm = new Vue({
+            el: '#app',
+            data: function () {
+                return {
+                    title: '',
+                    name: 'test001',
+                    code: '868744030289858',
+                    model: 'ALARM001'
+                }
+            },
+            methods: {
+                regDevice: function () {
+                    var self = this;
+                    console.log(baseUrl + '/Device/RegDevice')
+                    api.ajax({
+                        url: baseUrl + '/Device/RegDevice',
+                        method: 'post',
+                        dataType: 'json',
+                        headers: {
+                            'Content-Type': 'application/json; charset=utf-8'
+                        },
+                        data: {
+                            body: {
+                                userId: 1,
+                                appId: 1,
+                                name: self.name,
+                                verifyCode: self.code,
+                                nodeId: self.code,
+                                model: self.model
+                            }
+                        }
+                    }, function (ret, err) {
+                        console.log(JSON.stringify(ret));
+                        console.log(JSON.stringify(err));
+                        if (ret && ret.Result) {
+                            self.$toast('添加成功');
+                        } else {
+                            self.$messagebox('添加失败');
+                        }
+                    });
+                }
+            }
+        })
+    }
+</script>
+
+</html>

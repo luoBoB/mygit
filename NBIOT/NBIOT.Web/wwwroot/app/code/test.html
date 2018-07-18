@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul class="dropdown-menu" role="menu" aria-labelledby="industry_dropdownMenu">
+        <!-- ngRepeat: opt in industryOptions -->
+        <li class="dropdown-item ng-scope" role="presentation" ng-repeat="opt in industryOptions" ng-click="updateIndustry(opt)">
+            <a href="javascript:void(0);" role="menuitem" ng-bind="opt.label | translate" class="ng-binding">智慧家庭行业</a>
+        </li>
+        <!-- end ngRepeat: opt in industryOptions -->
+        <li class="dropdown-item ng-scope" role="presentation" ng-repeat="opt in industryOptions" ng-click="updateIndustry(opt)">
+            <a href="javascript:void(0);" role="menuitem" ng-bind="opt.label | translate" class="ng-binding">医疗行业</a>
+        </li>
+        <!-- end ngRepeat: opt in industryOptions -->
+        <li class="dropdown-item ng-scope" role="presentation" ng-repeat="opt in industryOptions" ng-click="updateIndustry(opt)">
+            <a href="javascript:void(0);" role="menuitem" ng-bind="opt.label | translate" class="ng-binding">车联网行业</a>
+        </li>
+        <!-- end ngRepeat: opt in industryOptions -->
+        <li class="dropdown-item ng-scope" role="presentation" ng-repeat="opt in industryOptions" ng-click="updateIndustry(opt)">
+            <a href="javascript:void(0);" role="menuitem" ng-bind="opt.label | translate" class="ng-binding">公用事业</a>
+        </li>
+        <!-- end ngRepeat: opt in industryOptions -->
+        <li class="dropdown-item ng-scope" role="presentation" ng-repeat="opt in industryOptions" ng-click="updateIndustry(opt)">
+            <a href="javascript:void(0);" role="menuitem" ng-bind="opt.label | translate" class="ng-binding">其它行业</a>
+        </li>
+        <!-- end ngRepeat: opt in industryOptions -->
+    </ul>
+</body>
+
+</html>
+<script>
+    var liArr = document.getElementsByTagName('a');
+    var str = "";
+    var index = 1;
+    for (var i = 0, len = liArr.length; i < len; i++) {
+        str += liArr[i].innerHTML + ","
+    }
+    console.log(str);
+
+    var data = '{"姓名":"罗报道","手机":"13266513170","年龄":"18","性别":"女","学车类型":"C1","手动挡":"是"}';
+    var json = JSON.parse(data);
+    for()
+</script>
